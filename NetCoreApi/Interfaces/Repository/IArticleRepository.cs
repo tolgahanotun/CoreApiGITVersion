@@ -8,12 +8,13 @@ namespace CoreApiGITVersion.Interfaces.Repository
 {
     interface IArticleRepository
     {
-        public bool AddArticle(TArticle article);
+        public void AddArticle(TArticle article);
 
-        public List<TArticle> GetArticleById(int articleId);
+        public TArticle GetArticleById(int articleId);
 
-        public TArticle RemoveArticle(TArticle article);
+        public void RemoveArticle(TArticle article);
 
+        public TArticle AcceptArticle(TArticle article, int acceptBy);
         public TArticle UpdateArticle(TArticle article);
     }
 }
