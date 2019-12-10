@@ -14,15 +14,7 @@ namespace CoreApiGITVersion.Repositories
         public ArticleRepository(CoreAPIGITVersionContext _context ) : base(_context)
         {
             Context = _context;
-        }
-
-        public TArticle AcceptArticle(TArticle article,int acceptBy)
-        {
-            article.AcceptedBy = acceptBy;
-            Context.TArticle.Update(article);
-            Context.SaveChanges();
-            return article;
-        }
+        } 
 
         public void AddArticle(TArticle article)
         {

@@ -6,15 +6,14 @@ using CoreApiGITVersion.Models;
 
 namespace CoreApiGITVersion.Interfaces.Repository
 {
-    interface IArticleRepository
+   public interface IArticleRepository
     {
         public void AddArticle(TArticle article);
 
         public TArticle GetArticleById(int articleId);
 
         public void RemoveArticle(TArticle article);
-
-        public TArticle AcceptArticle(TArticle article, int acceptBy);
+         
         public TArticle UpdateArticle(TArticle article);
     }
 }
