@@ -2,7 +2,7 @@
 
 
 - Projede kullanıdığınız tasarım desenleri hangileridir? Bu desenleri neden kullandınız?
-+ Repository Pattern
+ --> Repository Pattern
 
 -Kullandığınız teknoloji ve kütüphaneler hakkında daha önce tecrübeniz oldu mu? 
 + Yalnızca birkaç api denemem olmakla beraber kullandığım kütüphaneler hakkında pek bilgi sahibi değildim.
