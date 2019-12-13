@@ -21,6 +21,7 @@ using CoreApiGITVersion.Service;
 using CoreApiGITVersion.Interfaces.Service;
 using CoreApiGITVersion.Interfaces.Repository;
 using CoreApiGITVersion.Repositories;
+using CoreApiGITVersion.Logger;
 
 namespace CoreApiGITVersion
 {
@@ -32,9 +33,11 @@ namespace CoreApiGITVersion
         }
 
         public IConfiguration Configuration { get; }
-
+        public IWebHostEnvironment _hostingEnvironment { get; set; }
+        public Startup(IWebHostEnvironment hostingEnvironment) => _hostingEnvironment = hostingEnvironment;
         public void ConfigureServices(IServiceCollection services)
         {
+           
             services.AddControllers();
             services.AddMemoryCache();
           
@@ -92,23 +95,29 @@ namespace CoreApiGITVersion
             });
 
         }
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-          
+
             //app.UseMvc(routes =>
             //{
             //    routes.MapRoute("default", "{controller=Login}/{action=Login}/{id?}");
             //});
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Login}/{action=Accesstoken}");
-            });
+             
+            loggerFactory.AddProvider(new LoggerProvider(_hostingEnvironment));
+            if (env.IsDevelopment())
+                app.UseDeveloperExceptionPage();
+            app.UseRouting();
+            app.UseEndpoints(_ => _.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}"));
+            //app.UseMvc(routes =>
+            //{
+            //    routes.MapRoute(
+            //        name: "default",
+            //        template: "{controller=Login}/{action=Accesstoken}");
+            //});
             app.UseAuthentication();
             app.UseCors();
 

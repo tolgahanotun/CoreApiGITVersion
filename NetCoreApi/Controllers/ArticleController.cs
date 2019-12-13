@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Logging;
 
 namespace CoreApiGITVersion.Controllers
 {
@@ -18,11 +19,13 @@ namespace CoreApiGITVersion.Controllers
     {
         private readonly IArticleService ArticleService;
         private readonly IMemoryCache MemoryCache;
+        public ILogger<ArticleController> logger;
         const string cacheKey = "artOfArticles";
-        public ArticleController(IArticleService articleService,IMemoryCache memory)
+        public ArticleController(IArticleService articleService,IMemoryCache memory,ILogger<ArticleController> _logger)
         {
             ArticleService = articleService;
             MemoryCache = memory;
+            logger = _logger;
         }
         [AllowAnonymous]
         [HttpGet]
@@ -48,6 +51,7 @@ namespace CoreApiGITVersion.Controllers
             }
             catch (Exception ex)
             {
+                logger.LogError(ex.Message);
                 return BadRequest(ex.Message);
             }
         }
@@ -65,6 +69,7 @@ namespace CoreApiGITVersion.Controllers
             }
             catch (Exception ex)
             {
+                logger.LogError(ex.Message);
                 return BadRequest(ex.Message);
             }
         }
@@ -82,6 +87,7 @@ namespace CoreApiGITVersion.Controllers
             }
             catch (Exception ex)
             {
+                logger.LogError(ex.Message);
                 return BadRequest(ex.Message);
             }
         }
@@ -117,6 +123,7 @@ namespace CoreApiGITVersion.Controllers
             }
             catch (Exception ex)
             {
+                logger.LogError(ex.Message);
                 return BadRequest(ex.Message);
             }
         }

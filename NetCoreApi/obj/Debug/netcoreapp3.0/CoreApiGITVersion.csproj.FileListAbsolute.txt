@@ -134,4 +134,3 @@ C:\Users\tolgahan.otun\source\repos\NetCoreApi_VersionGIT\NetCoreApi\obj\Debug\n
 C:\Users\tolgahan.otun\source\repos\NetCoreApi_VersionGIT\NetCoreApi\obj\Debug\netcoreapp3.0\CoreApiGITVersion.csproj.CopyComplete
 C:\Users\tolgahan.otun\source\repos\NetCoreApi_VersionGIT\NetCoreApi\obj\Debug\netcoreapp3.0\CoreApiGITVersion.dll
 C:\Users\tolgahan.otun\source\repos\NetCoreApi_VersionGIT\NetCoreApi\obj\Debug\netcoreapp3.0\CoreApiGITVersion.pdb
-C:\Users\tolgahan.otun\source\repos\NetCoreApi_VersionGIT\NetCoreApi\obj\Debug\netcoreapp3.0\CoreApiGITVersion.csprojAssemblyReference.cache
