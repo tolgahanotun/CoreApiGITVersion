@@ -12,6 +12,7 @@
 +Servislerim vs genel yapım generic olurdu.
 +View tanımlayıp görsellik katmak isterdim.
 +Sadeceleştirilmiş bir kaç metotdan daha ayrıntılı metotlara geçiş yapardım.
++Identity yapısı ile user işlemlerimi gerçekleştirirdim.
 
 -Eklemek istediğiniz bir yorumunuz var mı?
 +Hayır. Teşekkürler
