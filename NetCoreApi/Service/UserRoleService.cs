@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace CoreApiGITVersion.Service
 {
-    public class UserRoleService:IUserRoleService
+    public class UserRoleService : IUserRoleService
     {
-        private readonly IUserRoleRepository  UserRoleRepository;
+        private readonly IUserRoleRepository UserRoleRepository;
         public UserRoleService(IUserRoleRepository userRole)
         {
             UserRoleRepository = userRole;
@@ -31,21 +31,22 @@ namespace CoreApiGITVersion.Service
             }
         }
 
-        public GenericResponse<TUserRole> GetUserRoleByUserId(int tUserId)
+        public GenericResponse<List<TUserRole>> GetUserRoleByUserId(int tUserId)
         {
             try
             {
                 if (tUserId < 1)
-                    return new GenericResponse<TUserRole>("UserId out of range");
-              var role=  UserRoleRepository.GetUserRoleByUserId(tUserId);
-                return new GenericResponse<TUserRole>(role);
+                    return new GenericResponse<List<TUserRole>>("UserId out of range");
+
+                var role = UserRoleRepository.GetUserRoleByUserId(tUserId);
+                return new GenericResponse<List<TUserRole>>(role.ToList());
             }
             catch (Exception ex)
             {
-                return new GenericResponse<TUserRole>(ex.Message);
+                return new GenericResponse<List<TUserRole>>(ex.Message);
             }
         }
-
+ 
         public GenericResponse<TUserRole> RemoveUserRole(TUserRole userRole)
         {
             try
@@ -53,12 +54,12 @@ namespace CoreApiGITVersion.Service
                 if (userRole == null) return new GenericResponse<TUserRole>("UserRole is empty");
                 UserRoleRepository.RemoveUserRole(userRole);
                 return new GenericResponse<TUserRole>(userRole);
-            
+
             }
             catch (Exception ex)
             {
                 return new GenericResponse<TUserRole>(ex.Message);
-                 
+
             }
         }
     }

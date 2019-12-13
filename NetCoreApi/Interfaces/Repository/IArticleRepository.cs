@@ -15,5 +15,6 @@ namespace CoreApiGITVersion.Interfaces.Repository
         public void RemoveArticle(TArticle article);
          
         public TArticle UpdateArticle(TArticle article);
+        public List<TArticle> GetDailyTop10();
     }
 }

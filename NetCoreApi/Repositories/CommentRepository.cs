@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CoreApiGITVersion.Interfaces.Repository;
-using CoreApiGITVersion.Contexts;
 using CoreApiGITVersion.Models;
 
 namespace CoreApiGITVersion.Repositories

@@ -51,6 +51,18 @@ namespace CoreApiGITVersion.Service
             }
         }
 
+        public GenericResponse<List<TArticle>> GetDailyList()
+        {
+            try
+            {
+             return  new GenericResponse<List<TArticle>>(ArticleRepository.GetDailyTop10());
+            }
+            catch (Exception ex)
+            {
+                 return new GenericResponse<List<TArticle>>(ex.Message);
+            }
+        }
+
         public GenericResponse<TArticle> RemoveArticle(TArticle article)
         {
             try

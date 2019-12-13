@@ -1,8 +1,8 @@
-﻿using System;
+﻿using CoreApiGITVersion.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using CoreApiGITVersion.Contexts;
+using System.Threading.Tasks; 
 
 namespace CoreApiGITVersion.Repositories
 {

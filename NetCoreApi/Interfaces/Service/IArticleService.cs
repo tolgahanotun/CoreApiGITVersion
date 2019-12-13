@@ -17,5 +17,7 @@ namespace CoreApiGITVersion.Interfaces.Service
 
          
         public GenericResponse<TArticle> UpdateArticle(TArticle article);
+
+        public GenericResponse<List<TArticle>> GetDailyList();
     }
 }

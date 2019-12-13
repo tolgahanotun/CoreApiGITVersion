@@ -10,7 +10,7 @@ namespace CoreApiGITVersion.Interfaces.Service
     interface IUserRoleService
     {
         public GenericResponse<TUserRole> AddUserRole(TUserRole userRole);
-        public GenericResponse<TUserRole> GetUserRoleByUserId(int tUserId);
+        public GenericResponse<List<TUserRole>> GetUserRoleByUserId(int tUserId);
         public GenericResponse<TUserRole> RemoveUserRole(TUserRole userRole);
     }
 }

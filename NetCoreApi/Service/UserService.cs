@@ -48,6 +48,24 @@ namespace CoreApiGITVersion.Service
             }
         }
 
+        public GenericResponse<TUser> GetUserByUserNameAndPassword(string userName, string password)
+        {
+            if (string.IsNullOrEmpty(userName) || string.IsNullOrWhiteSpace(password))
+                return new GenericResponse<TUser>("Pls check your information");
+
+            try
+            {
+                return new GenericResponse<TUser>(UserRepository.GetUserByUserNameAndPassword(userName, password));
+            }
+            catch (Exception ex)
+            {
+                return new GenericResponse<TUser>(ex.Message);
+            }
+
+
+        }
+
+
         public GenericResponse<TUser> RemoveUser(TUser user)
         {
             try
@@ -60,6 +78,8 @@ namespace CoreApiGITVersion.Service
                 return new GenericResponse<TUser>(ex.Message);
             }
         }
+
+    
 
         public GenericResponse<TUser> UpdateUser(TUser user)
         {
@@ -75,5 +95,53 @@ namespace CoreApiGITVersion.Service
                 return new GenericResponse<TUser>(ex.Message);
             }
         }
+
+
+        public GenericResponse<TUser> GetUserWithRefreshToken(string refreshToken)
+        {
+            try
+            {
+                TUser user = UserRepository.GetUserWithRefreshToken(refreshToken);
+
+                if (user == null)
+                {
+                    return new GenericResponse<TUser>("User not exist.");
+                }
+                else
+                {
+                    return new GenericResponse<TUser>(user);
+                }
+            }
+            catch (Exception ex)
+            {
+                return new GenericResponse<TUser>(ex.Message);
+            }
+        }
+
+        public void RemoveRefreshToken(TUser user)
+        {
+            try
+            {
+                UserRepository.RemoveRefreshToken(user); 
+            }
+            catch (Exception)
+            {
+                //loglama yapılacaktır.
+            }
+        }
+
+        public void SaveRefreshToken(int userId, string refreshToken)
+        {
+            try
+            {
+                UserRepository.SaveRefreshToken(userId, refreshToken);
+                 
+            }
+            catch (Exception)
+            {
+                //loglama yapılacaktır..
+            }
+        }
+
     }
 }

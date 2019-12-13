@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using CoreApiGITVersion.Contexts;
 using CoreApiGITVersion.Models;
 
 namespace CoreApiGITVersion.Repositories
@@ -26,7 +25,12 @@ namespace CoreApiGITVersion.Repositories
         {
             return Context.TArticle.Where(x=>x.TArticleId==articleId && x.Deleted!=true && x.AcceptedBy>0).FirstOrDefault();
         }
-         
+
+        public List<TArticle> GetDailyTop10()
+        {
+         return   Context.TArticle.Where(X=>X.Deleted!=true).OrderByDescending(x => x.CreatedDate).Take(10).ToList();
+        }
+
         public void RemoveArticle(TArticle article)
         {
             article.Deleted = true;

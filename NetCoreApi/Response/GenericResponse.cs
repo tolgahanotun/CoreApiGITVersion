@@ -20,9 +20,17 @@ namespace CoreApiGITVersion.Response
         //Success
         public GenericResponse( T ent)
         {
-            Object = ent;
-            Success = true;
-            Message = string.Empty;
+            if (ent != null)
+            {
+                Object = ent;
+                Success = true;
+                Message = string.Empty;
+            }
+            else
+            {
+                this.Message = "Not Found";
+                this.Success = false;
+            }
         }
 
         

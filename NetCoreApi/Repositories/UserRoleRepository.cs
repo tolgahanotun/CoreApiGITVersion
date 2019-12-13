@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using CoreApiGITVersion.Contexts;
+using System.Security.Claims;
+using System.Threading.Tasks; 
 using CoreApiGITVersion.Interfaces.Repository;
 using CoreApiGITVersion.Models;
 
@@ -22,9 +22,11 @@ namespace CoreApiGITVersion.Repositories
             Context.SaveChanges();
         }
 
-        public TUserRole GetUserRoleByUserId(int tUserId)
+       
+
+        public IEnumerable<TUserRole> GetUserRoleByUserId(int tUserId)
         {
-            return Context.TUserRole.Where(x => x.TUserId == tUserId).First();
+            return Context.TUserRole.Where(x => x.TUserId == tUserId).ToList();
         }
 
         public void RemoveUserRole(TUserRole userRole)

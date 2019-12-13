@@ -22,5 +22,6 @@ namespace CoreApiGITVersion
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
     }
 }

@@ -7,11 +7,15 @@ using System.Threading.Tasks;
 
 namespace CoreApiGITVersion.Interfaces.Service
 {
-    interface IUserService
+    public interface IUserService
     {
         public GenericResponse<TUser> AddUser(TUser user);
         public GenericResponse<TUser> RemoveUser(TUser user);
         public GenericResponse<TUser> UpdateUser(TUser user);
         public GenericResponse<TUser> GetUserById(int tUserId);
+        public GenericResponse<TUser> GetUserByUserNameAndPassword(string userName, string password); 
+        void SaveRefreshToken(int userId, string refreshToken); 
+        GenericResponse<TUser> GetUserWithRefreshToken(string refreshToken); 
+        void RemoveRefreshToken(TUser user);
     }
 }

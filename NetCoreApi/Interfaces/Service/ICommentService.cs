@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CoreApiGITVersion.Interfaces.Service
 {
-    interface ICommentService
+   public interface ICommentService
     {
         public GenericResponse<TComments> AddComment(TComments comment);
         public GenericResponse<TComments> RemoveComment(TComments comment);
